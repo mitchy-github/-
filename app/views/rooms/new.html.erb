@@ -1,0 +1,57 @@
+<div class="container-fiuld room-new">
+  <div class="row">
+    <div class="col-2">
+      <%= render'shared/sidebar3' %>
+      <%= render'shared/sidebar4' %>
+    </div>
+      <div class="col-lg-10 room-view">
+        <div class="room-view-box">
+          <%= render "devise/shared/error_messages", resource: @room %>
+            <%= form_for @room, multipart: true do |f| %>
+              <div class="update-content">
+                <div class="row">
+                   <h5>ルーム情報登録</h5>
+                </div>
+              </div>
+              <div class="update-content">
+                <div class="row">
+                  <label class="col-md-3 required-a" for="room_name">ルーム名</label>
+                  <input class="form-control mb-4 col-md-9" placeholder="ルーム名を入力" type="text" name="room[room_name]" id="room_name">
+                </div>
+              </div>
+              <div class="update-content">
+                <div class="row">
+                  <label class="col-md-3 required-a" for="roomcontent">ルーム紹介</label>
+                  <textarea rows="5" class="form-control mb-4 col-md-9" placeholder="ルーム説明を入力" name="room[room_content]" id="room_content"></textarea>
+                </div>
+              </div>
+              <div class="update-content">
+                <div class="row">
+                  <label class="col-md-3 required-a" for="room3_price">料金</label>
+                  <input class="form-control mb-4 col-md-9" placeholder="一日あたりの料金を入力" type="number" name="room[room3_price]" id="room3_price">
+                </div>
+              </div>
+              <div class="update-content">
+                <div class="row">
+                  <label class="col-md-3 required-a" for="room_address">住所</label>
+                  <input class="form-control mb-4 col-md-9" placeholder="住所を入力" type="text" name="room[room_address]" id="room_address">
+                </div>
+              </div>
+              <div class="update-content">
+                <div class="row">
+                　<label class="col-md-3 required-a" for="room_image">ルーム画像</label>
+                  <label class="mb-4 col-md-9">
+                    <%= f.file_field :room_image, class: "file-input" %>
+                  </label>
+                </div>
+              </div>
+              <div class="update-content">
+                <div class="row">
+                  <%= f.submit "登録する", class: "col-md-2 btn btn-primary mx-3" %>
+                </div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+  </div>
+</div>

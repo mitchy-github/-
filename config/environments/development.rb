@@ -60,6 +60,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
+  # デバイスのメール設定
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
   # Cloud9 への接続を許可する
   config.hosts.clear
 end

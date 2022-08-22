@@ -1,0 +1,36 @@
+<div class="user-view-box">
+  <div class="update-content">
+    <label for="room">予約した部屋</label>
+  </div>
+  <div class="update-content">
+    <td>
+      <% if @reservation.room.room_image.attached? %>
+        <%= image_tag @reservation.room.room_image, size: '100' %>
+      <% else %>
+        画像なし
+      <% end %>
+    </td>
+      </div>
+  <div class="update-content">
+    <%= link_to @room.room_name, @room %>
+  </div>
+  <div class="update-content">
+    <label for="reservation_start">開始日</label>
+    <div>
+      <%= @reservation.reservation2_start %>
+    </div>
+  </div>
+  <div class="update-content">
+    <label for="room">終了日</label>
+    <div>
+      <%= @reservation.reservation2_end %>
+    </div>
+  </div>
+  <div class="update-content">
+    <label for="room">価格</label>
+    <div>
+      <%= @reservation.reservation_price %>
+    </div>
+  </div>
+</div>
+

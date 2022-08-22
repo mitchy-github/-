@@ -1,0 +1,42 @@
+<div class="container-fiuld reservations">
+  <h4 class="pb-4">検索結果：<%= @results_count %>件</h4>
+  <table>
+      <thead>
+          <tr align="center">
+              <th>id</th>
+              <th>ルーム画像</th>
+              <th>ルーム名</th>
+              <th>住所</th>
+              <th>ルーム紹介</th>
+              <th>料金</th>
+              <th>作成日</th>
+          </tr>
+      </thead>
+  
+      <tbody>
+          <% if @results.count > 0 %>
+          <% @results.each do |results| %>
+          <tr>
+            <td>
+              <%= results.id %>
+            </td>
+            <td>
+              <% if results.room_image.attached? %>
+                <%= image_tag results.room_image, size: '180' %>
+              <% else %>
+                画像なし
+              <% end %>
+            </td>
+            <td><%= link_to results.room_name, results %></td>
+            <td><%= results.room_address %></td>
+            <td><%= results.room_content %></td>
+            <td>¥ <%= results.room3_price %></td>
+            <td><%= results.created_at.to_s(:datetime_jp) %></td>
+              </tr>
+          <% end %>
+      <% else %>
+        <td colspan="7"></td>
+      <% end %>
+      </tbody>
+  </table>
+</div>

@@ -1,0 +1,121 @@
+<section class="section">
+    <div class="container">
+        <article class="panel">
+            <div class="panel-heading">
+                お部屋の登録
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <%= render "devise/shared/error_messages", resource: @room %>
+                        <%= form_for @room, multipart: true do |f| %>
+                        
+                        <div class="update-content">
+                        <div class="row">
+                            <label class="col-md-3 required-a" for="room_name">ルーム名<%= f.label :必須, class: "label" %></label>
+                            <input class="form-control mb-4 col-md-9" placeholder="ルーム名を入力" type="text" name="room[room_name]" id="room_name">
+                        </div>
+                    </div>
+                    
+                    <div class="update-content">
+                        <div class="row">
+                            <label class="col-md-3 required-a" for="roomcontent">ルーム紹介<%= f.label :必須, class: "label" %></label>
+                            <textarea rows="5" class="form-control mb-4 col-md-9" placeholder="ルーム説明を入力" name="room[room_content]" id="room_content"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="update-content">
+                        <div class="row">
+                            <label class="col-md-3 required-a" for="room_price">料金<%= f.label :必須, class: "label" %></label>
+                            <input class="form-control mb-4 col-md-9" placeholder="一日あたりの料金を入力" type="number" name="room[room_price]" id="room_price">
+                        </div>
+                    </div>
+                        
+                    <div class="update-content">
+                        <div class="row">
+                            <label class="col-md-3 required-a" for="room_address">住所<%= f.label :必須, class: "label" %></label>
+                            <input class="form-control mb-4 col-md-9" placeholder="住所を入力" type="text" name="room[room_address]" id="room_address">
+                        </div>
+                    </div>
+                    
+                    <!--<div class="update-content">-->
+                    <!--    <div class="row">-->
+                    <!--        <label class="col-md-3 required-a" for="room_image">ルーム画像</label>-->
+                    <!--        <input class="mb-4 col-md-9" placeholder="ルーム画像をアップロード" type="file" name="room[room_image]" id="room_image">-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                                                           <div class="file">
+                                        　<label class="col-md-3 required-a" for="room_address">ルーム画像<%= f.label :必須, class: "label" %></label>
+                                          <label class="button is-primary is-outlined is-fullwidth">
+                                            <%= f.file_field :room_image, class: "file-input" %>
+                                              <!--<i class="fas fa-upload"></i>&nbsp;&nbsp;&nbsp; アバター画像アップロード-->
+                                          </label>
+                                        </div>
+                        
+                        
+                            <!--<div class="col-md-4 select">-->
+                            <!--    <div class="form-group">-->
+                            <!--        <label>お家のタイプ</label>-->
+                            <!--        <= f.select :home_type, [["マンション", "マンション"], ["アパート", "アパート"], ["一戸建て", "一戸建て"]],-->
+                            <!--            id: "home_type", prompt: "選択してください", class: "form-control" %>-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+                            <!--<div class="col-md-4 select">-->
+                            <!--    <div class="form-group">-->
+                            <!--        <label>お部屋のタイプ</label>-->
+                            <!--        <= f.select :room_type, [ ["プライベート", "プライベート"], ["シェア", "シェア"]],-->
+                            <!--            id: "room_type", prompt: "選択してください", class: "form-control" %>-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<div class="col-md-3 select">-->
+                            <!--    <div class="form-group">-->
+                            <!--        <label>宿泊可能人数</label>-->
+                            <!--        <= f.select :accommodate, [["2人", 2], ["3人", 3], ["4人以上", 4]],-->
+                            <!--            id: "accommodate", prompt: "選択してください", class: "form-control" %>-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+                            <!--<div class="col-md-4 select">-->
+                            <!--    <div class="form-group">-->
+                            <!--        <label>ベッド数</label>-->
+                            <!--        <= f.select :bed_room, [["1台", 1], ["2台", 2], ["3台", 3], ["4台以上", 4]],-->
+                            <!--            id: "bed_room", prompt: "選択してください", class: "form-control" %>-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<div class="col-md-4 select">-->
+                            <!--    <div class="form-group">-->
+                            <!--        <label>部屋数</label>-->
+                            <!--        <= f.select :bath_room, [["1部屋", 1], ["2部屋", 2], ["3部屋", 3], ["4部屋以上", 4]],-->
+                            <!--            id: "bath_rooms", prompt: "選択してください", class: "form-control" %>-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            
+                                    <!--<= form_for :room, url: rooms_edit_url(@room), action: :update, method: :post do |f| %>-->
+                                        <!--<div class="file">-->
+                                        <!--    <label class="button is-primary is-outlined is-fullwidth">-->
+                                        <!--        <= f.file_field :room_image, class: "file-input" %>-->
+                                                <!--, onchange: "this.form.submit();"←これを消すと選択後即submitされなくなった-->
+                                        <!--        <i class="fas fa-upload"></i>&nbsp;&nbsp;&nbsp; アバター画像アップロード-->
+                                        <!--    </label>-->
+                                        <!--</div>-->
+                                    <!--< end %> -->
+                            
+                            <div><%= f.submit "登録する", class: "button is-primary" %></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>

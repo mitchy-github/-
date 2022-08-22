@@ -1,0 +1,45 @@
+<div class = "top" >
+  <div class="top-main">
+    <div class="container">
+      <div class="row col-lg-6">
+        <div class="form-fream">
+          <div class="form-area">
+            <p>Potepan Shareでまだ体験したことのない旅をしよう</p>
+              <%= search_form_for @q, url: search_rooms_path do |f| %>
+                <%= f.label :room_address_cont ,"エリア" %>
+                <%= f.search_field :room_address_cont, class: "form-control mb-4 mmb-4", placeholder: "東京" %>
+                <p><%= f.submit "探す", class: "form-control btn-primary mb-4" %></p>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="panel-area m-5">
+      <h1>おすすめのエリア</h1>
+        <div class="row">
+          <div class="panel-item col-lg-3 col-6">
+            <span>東京</span>
+              <%= link_to image_tag("img_tokyo.jpg", class: "panel-image"), search_rooms_path(q: {room_address_cont: "東京"}) %>
+            <div class="shadow"></div>
+          </div>
+          <div class="panel-item col-lg-3 col-6">
+            <span>大阪</span>
+              <%= link_to image_tag("img_osaka.jpg", class: "panel-image"), search_rooms_path(q: {room_address_cont: "大阪"}) %>
+            <div class="shadow"></div>
+          </div>
+          <div class="panel-item col-lg-3 col-6">
+            <span>京都</span>
+              <%= link_to image_tag("img_kyoto.jpg", class: "panel-image"), search_rooms_path(q: {room_address_cont: "京都"}) %>
+            <div class="shadow"></div>
+          </div>
+          <div class="panel-item col-lg-3 col-6">
+            <span>札幌</span>
+              <%= link_to image_tag("img_sapporo.jpg", class: "panel-image"), search_rooms_path(q: {room_address_cont: "札幌"}) %>
+            <div class="shadow"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
