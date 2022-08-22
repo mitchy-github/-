@@ -1,0 +1,50 @@
+<div class="container-fiuld user">
+  <div class="row">
+    <%= render'shared/sidebar' %>
+    <%= render'shared/sidebar2' %>
+    <div class="col-lg-10 user-view col-2">
+          <div class="user-view-box">
+            <%= render "devise/shared/error_messages", resource: current_user %>
+                    <div class="update-content">
+                      <div class="row">
+                        <h5>プロフィール</h5>
+                      </div>
+                    </div>
+            <%= form_for :user, url: dashboard_url(@user), action: :update, method: :post, html: {id: 'user-about', class: 'edit_user'}, local: true do |f| %>
+                    <div class="update-content">
+                      <div class="row">
+                        <div class="box">
+                          <figure class="image is-256x256">
+                            <%= image_tag avatar_url(current_user), class: "is-rounded" %>
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="update-content">
+                      <div class="row">
+                        <label class="col-md-3 required-a" for="avatar">アイコン画像</label>
+                          <%= f.file_field :avatar, class: "file-input" %>
+                      </div>
+                    </div>
+                    <div class="update-content">
+                      <div class="row">
+                        <label class="col-md-3 required-a" for="name">名前</label>
+                        <input class="form-control mb-4 col-md-9" placeholder="名前を入力" type="text" value="<%= current_user.full_name %>" name="user[full_name]" id="user_name">
+                      </div>
+                    </div>
+                    <div class="update-content">
+                      <div class="row">
+                        <label class="col-md-3 required-a" for="about">自己紹介</label>
+                        <textarea rows="5" class="form-control mb-4 col-md-9" placeholder="自己紹介を入力" name="user[about]" id="user_introduction"><%= current_user.about %></textarea>
+                      </div>
+                    </div>
+                    <div class="update-content">
+                      <div class="row">
+                        <%= f.submit "保存", class: "col-md-2 btn btn-primary mx-3" %>
+                      </div>
+                    </div>
+            <% end %>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left-nav">
+      <a href="/">
+        <img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
+      </a>
+        <%= search_form_for @q_header, url: search_rooms_path do |f| %>
+        <%= f.search_field :room_address_cont, class: "header-sharch d-lg-inline-block d-none", placeholder: "エリア" %>
+        <% end %>
+        <%= search_form_for @q_header, url: search_rooms_path do |f| %>
+        <%= f.search_field :room_address_or_room_name_or_room3_price_or_room_content_cont, class: "header-sharch d-lg-inline-block d-none", placeholder: "キーワード" %>
+        <% end %>
+    </div>
+      <div class="header-right-nav">
+        <!-- もしログインしていなかったら-->
+        <% if (!user_signed_in?) %>
+          <%= link_to  "ログイン", new_user_session_path, class: "btn btn-primary my-2 mx-3" %>
+          <%= link_to  "登録する", new_user_registration_path, class: "btn btn-secondary my-2 mx-3" %>
+            <!-- ログインしていたら　-->
+        <% else %>
+            <div class="nav-item d-sm-inline-block" style="display:inline-flex"><%= current_user.full_name %></div>
+              <div class="nav-item has-dropdown is-hoverable">
+                <div>
+                  <%= image_tag avatar_url(current_user), class: "mx-3 p-1 is-rounded" %>
+                </div>
+                  <div class="navbar-dropdown">
+                      <hr class="navbar-divider">
+                        <%= link_to 'ルーム登録', new_room_path, class: "navbar-item" %>
+                    　<hr class="navbar-divider">
+                        <%= link_to '予約済みルーム一覧', reservations_path, class: "navbar-item" %>
+                      <hr class="navbar-divider">
+                        <%= link_to '登録済みルーム一覧', rooms_path, class: "navbar-item" %>
+                      <hr class="navbar-divider">
+                        <%= link_to '設定', users_show_path, class: "navbar-item" %>
+                      <hr class="navbar-divider">
+                        <%= link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+                  </div>
+              </div>
+            <% end %>
+        </div>
+</header>
+
+<script>
+  $(document).ready(function() {
+    $('.is-hoverable').click(function() {
+          $('.navbar-dropdown').toggle();
+      })
+  });
+</script>

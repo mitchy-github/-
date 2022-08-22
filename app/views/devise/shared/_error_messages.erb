@@ -1,0 +1,11 @@
+<% if resource.errors.any? %>
+  <% resource.errors.full_messages.each do |message| %>
+  
+    <ul>
+      
+    <li><%= message %></li>
+    
+    </ul>
+    
+  <% end %>
+<% end %>
