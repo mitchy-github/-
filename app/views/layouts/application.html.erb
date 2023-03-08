@@ -2,14 +2,18 @@
 <html>
   <head>
     <title>HelloinnApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--　アイコン　Font Awesome　-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   </head>
-
   <body>
+    <%= render  "shared/navbar" %>
+    <p><%= render "shared/notice",class: "notice" %></p>
+    <p><%= render "shared/alert",class: "alert2" %></p>
     <%= yield %>
   </body>
+    <%= render  "shared/footer" %>
 </html>

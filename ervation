@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ubuntu/environment/helloinn_app/app/controllers/reservations_controller.rb:22 ReservationsController#create:
+
+    [1;34m20[0m: [32mdef[0m [1;34mcreate[0m
+    [1;34m21[0m:   @reservation = [1;34;4mReservation[0m.new(params.require([33m:reservation[0m).permit([33m:start_date[0m, [33m:end_date[0m, [33m:reservation_start[0m, [33m:reservation_end[0m, [33m:reservation_price[0m, [33m:reservation_people[0m, [33m:room_id[0m, [33m:user_id[0m))
+ => [1;34m22[0m:   binding.pry
+    [1;34m23[0m:   @room = [1;34;4mRoom[0m.find(params[[33m:room_id[0m])
+    [1;34m24[0m:   [1;34m# binding.pry[0m
+    [1;34m25[0m:   [32mif[0m @reservation.save
+    [1;34m26[0m:     redirect_to @reservation
+    [1;34m27[0m:   [32melse[0m
+    [1;34m28[0m:     render [31m[1;31m"[0m[31mconfirm[1;31m"[0m[31m[0m
+    [1;34m29[0m:   [32mend[0m
+    [1;34m30[0m: [32mend[0m
+
